@@ -21,9 +21,14 @@ public class UserRestController {
         return userService.findAll();
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/users/id/{id}")
     public User show(@PathVariable Long id) {
         return this.userService.findById(id);
+    }
+
+    @GetMapping("/users/name/{nameUser}")
+    public User show(@PathVariable String nameUser) {
+        return this.userService.findByName(nameUser);
     }
 
     @PostMapping("/users")
@@ -33,7 +38,7 @@ public class UserRestController {
         return user;
     }
 
-    @PutMapping("/users/{id}")
+    @PutMapping("/users/id/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public User update(@ModelAttribute User user, @PathVariable Long id) {
         User currentUser = this.userService.findById(id);
@@ -43,7 +48,7 @@ public class UserRestController {
         return currentUser;
     }
 
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/users/id/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
         this.userService.delete(id);

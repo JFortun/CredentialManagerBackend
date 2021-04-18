@@ -33,6 +33,12 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public User findByName(String nameUser) {
+        return userDAO.findByNameUser(nameUser);
+    }
+
+    @Override
     @Transactional
     public void delete(Long id) {
         userDAO.deleteById(id);
