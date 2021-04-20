@@ -4,4 +4,6 @@ import com.fortun.credmanback.models.entity.Credential;
 import org.springframework.data.repository.CrudRepository;
 
 public interface ICredentialDAO extends CrudRepository<Credential, Long> {
+
+    Credential findByIdUserFK(Long idUserFK);
 }

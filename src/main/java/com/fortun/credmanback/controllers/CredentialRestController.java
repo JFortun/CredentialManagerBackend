@@ -21,9 +21,14 @@ public class CredentialRestController {
         return credentialService.findAll();
     }
 
-    @GetMapping("/credentials/{id}")
+    @GetMapping("/credentials/id/{id}")
     public Credential show(@PathVariable Long id) {
         return credentialService.findById(id);
+    }
+
+    @GetMapping("/credentials/user/{idUser}")
+    public Credential showCredential(@PathVariable Long idUser) {
+        return this.credentialService.findByIdUserFK(idUser);
     }
 
     @PostMapping("/credentials")
@@ -33,7 +38,7 @@ public class CredentialRestController {
         return credential;
     }
 
-    @PutMapping("/credentials/{id}")
+    @PutMapping("/credentials/id/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public Credential update(@ModelAttribute Credential credential, @PathVariable Long id) {
         Credential currentCredential = this.credentialService.findById(id);
@@ -45,7 +50,7 @@ public class CredentialRestController {
         return currentCredential;
     }
 
-    @DeleteMapping("/credentials/{id}")
+    @DeleteMapping("/credentials/id/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
         this.credentialService.delete(id);

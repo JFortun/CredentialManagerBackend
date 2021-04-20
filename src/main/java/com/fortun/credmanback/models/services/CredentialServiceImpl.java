@@ -33,6 +33,12 @@ public class CredentialServiceImpl implements ICredentialService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public Credential findByIdUserFK(Long id) {
+        return credentialDAO.findByIdUserFK(id);
+    }
+
+    @Override
     @Transactional
     public void delete(Long id) {
         credentialDAO.deleteById(id);
