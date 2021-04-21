@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CredmanbackApplication {
+public class CredManBackApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CredmanbackApplication.class, args);
+        SpringApplication.run(CredManBackApplication.class, args);
     }
 
 }
