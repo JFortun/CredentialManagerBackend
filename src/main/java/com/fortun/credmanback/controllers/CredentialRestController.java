@@ -27,8 +27,8 @@ public class CredentialRestController {
     }
 
     @GetMapping("/credentials/user/{idUser}")
-    public Credential showCredential(@PathVariable Long idUser) {
-        return this.credentialService.findByIdUserFK(idUser);
+    public List<Credential> showCredential(@PathVariable Long idUser) {
+        return this.credentialService.findAllByIdUserFK(idUser);
     }
 
     @PostMapping("/credentials")

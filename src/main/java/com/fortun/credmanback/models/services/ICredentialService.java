@@ -12,8 +12,7 @@ public interface ICredentialService {
 
     Credential findById(Long id);
 
-    Credential findByIdUserFK(Long id);
+    List<Credential> findAllByIdUserFK(Long id);
 
     void delete(Long id);
-
 }

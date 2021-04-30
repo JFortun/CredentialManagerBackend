@@ -34,8 +34,8 @@ public class CredentialServiceImpl implements ICredentialService {
 
     @Override
     @Transactional(readOnly = true)
-    public Credential findByIdUserFK(Long id) {
-        return credentialDAO.findByIdUserFK(id);
+    public List<Credential> findAllByIdUserFK(Long id) {
+        return credentialDAO.findAllByIdUserFK(id);
     }
 
     @Override
